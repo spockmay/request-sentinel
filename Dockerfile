@@ -31,7 +31,8 @@ COPY --from=builder /install /usr/local
 COPY . .
 
 # Don't run as root
-RUN useradd --no-create-home appuser && chown -R appuser /app
+RUN useradd appuser && chown -R appuser /app
+RUN mkdir -p /home/appuser && chown -R appuser:appuser /home/appuser
 USER appuser
 
 EXPOSE 5000
