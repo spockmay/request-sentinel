@@ -1,5 +1,4 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:719596815912:task-definition/test-request-sentinel:4",
     "containerDefinitions": [
         {
             "name": "sentinel-app",
@@ -15,9 +14,6 @@
                 }
             ],
             "essential": true,
-            "restartPolicy": {
-                "enabled": true
-            },
             "environment": [],
             "environmentFiles": [],
             "mountPoints": [],
@@ -49,9 +45,7 @@
     "family": "test-request-sentinel",
     "executionRoleArn": "arn:aws:iam::719596815912:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 4,
     "volumes": [],
-    "status": "ACTIVE",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -99,8 +93,5 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2026-04-07T16:37:56.131Z",
-    "registeredBy": "arn:aws:iam::719596815912:user/rmay",
-    "enableFaultInjection": false,
     "tags": []
 }
