@@ -28,3 +28,9 @@ def get_logs():
         RequestLog.query.order_by(RequestLog.timestamp.desc()).limit(100).all()
     )
     return jsonify([log.to_dict() for log in logs])
+
+
+# This will handle any /* URL call instead of throwing a 404
+@main_bp.route("<path:url>", methods=["GET", "POST"])
+def wildcard():
+    return jsonify({"status": "ok", "service": "request-sentinel"})
