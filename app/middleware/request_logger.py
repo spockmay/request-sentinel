@@ -38,6 +38,10 @@ class RequestLoggerMiddleware:
             response_time_ms=round(elapsed_ms, 3),
         )
 
+        if "ELB-HealthChecker" in log_entry.user_agent:
+            # ignore AWS's load balancer health checks
+            return response
+
         try:
             db.session.add(log_entry)
             db.session.commit()
