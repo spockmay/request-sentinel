@@ -42,6 +42,10 @@ class RequestLoggerMiddleware:
             # ignore AWS's load balancer health checks
             return response
 
+        if "/logs" == log_entry.path:
+            # ignore requests to view the latest log entries
+            return response
+
         try:
             db.session.add(log_entry)
             db.session.commit()
