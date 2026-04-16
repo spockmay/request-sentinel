@@ -40,7 +40,6 @@ def test_endpoint():
 
 
 @main_bp.route("/logs")
-@auth.login_required
 def get_logs():
     """Return the 100 most recent request logs."""
     logs = (
