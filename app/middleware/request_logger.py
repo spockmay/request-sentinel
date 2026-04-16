@@ -38,6 +38,10 @@ class RequestLoggerMiddleware:
             response_time_ms=round(elapsed_ms, 3),
         )
 
+        if log_entry.status_code == 401:
+            # ignore unauthenticated requests
+            return response
+
         if "ELB-HealthChecker" in log_entry.user_agent:
             # ignore AWS's load balancer health checks
             return response
